@@ -25,7 +25,7 @@ interface PostProst {
 }
 
 export function Post({ author, publishedAt, content }: PostProst) {
-  const [comments, setComments] = useState(["Post muito bacan, hein?"]);
+  const [comments, setComments] = useState(["Post muito bacana, hein?"]);
   const [newCommentText, setNewCommentText] = useState('')
 
   const publishedDateFormatted = format(
