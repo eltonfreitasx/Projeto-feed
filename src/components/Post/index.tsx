@@ -6,6 +6,7 @@ import { Avatar } from "../Avatar";
 import { Comment } from "../Comment";
 
 import styles from "./Post.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface Author {
   name: string;
@@ -25,8 +26,9 @@ interface PostProst {
 }
 
 export function Post({ author, publishedAt, content }: PostProst) {
-  const [comments, setComments] = useState(["Post muito bacana, hein?"]);
+  const [comments, setComments] = useState<string[]>([]);
   const [newCommentText, setNewCommentText] = useState('')
+  const {isAuthenticated} = useAuth0()
 
   const publishedDateFormatted = format(
     publishedAt,
@@ -117,11 +119,15 @@ export function Post({ author, publishedAt, content }: PostProst) {
         </footer>
       </form>
 
+    {comments && isAuthenticated ? 
       <div className={styles.commentList}>
-        {comments.map((comment) => {
-          return <Comment key={comment} content={comment} onDeleteComment={deleteComment} />;
-        })}
-      </div>
+      {comments.map((comment) => {
+        return <Comment key={comment} content={comment} onDeleteComment={deleteComment} />;
+      })}
+    </div>  
+  : 
+      <div></div>
+  }
     </article>
   );
 }

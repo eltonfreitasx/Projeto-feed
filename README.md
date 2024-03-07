@@ -4,7 +4,7 @@
 
 ### Preview
 
-## Page with feeds
+## Page with feeds </br></br>
 
 <img src="./src/assets/readme/feed.jpg" />
 <hr/>
