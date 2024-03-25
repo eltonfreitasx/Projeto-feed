@@ -4,9 +4,9 @@
 <hr/>
 
 ### 🛠️ Technologies 
-React Native <br/>
-Nativewind <br/>
-Shadcn/ui <br/>
+React <br/>
+Typescript <br/>
+Phospho-react <br/>
 <hr/>
 
 ## 🧲 Requirements 
